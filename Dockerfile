@@ -1,14 +1,14 @@
-# On part d'une image Tomcat officielle
-FROM tomcat:9.0-jdk11-openjdk
+# Image Tomcat 11
+FROM tomcat:11.0-jdk21
 
-# On supprime les applications par défaut de Tomcat
+# حذف التطبيقات الافتراضية
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# On copie votre fichier ROOT.war dans le dossier webapps de Tomcat
-COPY ROOT.war /usr/local/tomcat/webapps/
+# نسخ WAR ديال المشروع
+COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-# Port utilisé par Railway
+# Port
 EXPOSE 8080
 
-# Lancer Tomcat
+# تشغيل Tomcat
 CMD ["catalina.sh", "run"]
