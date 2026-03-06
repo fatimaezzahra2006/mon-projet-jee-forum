@@ -5,12 +5,13 @@ FROM tomcat:11.0-jdk21
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # نسخ WAR ديال المشروع
-COPY ROOT(2).war /usr/local/tomcat/webapps/ROOT.war
+COPY forumcdl.war /usr/local/tomcat/webapps/ROOT.war
 
 # Port
 EXPOSE 8080
 
 # تشغيل Tomcat
 CMD ["catalina.sh", "run"]
+
 
 
