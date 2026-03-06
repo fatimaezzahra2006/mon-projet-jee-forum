@@ -5,11 +5,12 @@ FROM tomcat:11.0-jdk21
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # نسخ WAR ديال المشروع
-COPY target/*.war /usr/local/tomcat/webapps/ROOT(2).war
+COPY ROOT(2).war /usr/local/tomcat/webapps/ROOT.war
 
 # Port
 EXPOSE 8080
 
 # تشغيل Tomcat
 CMD ["catalina.sh", "run"]
+
 
